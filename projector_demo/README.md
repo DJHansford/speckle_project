@@ -34,8 +34,8 @@ Connects to Tektronix AFG 3022. This could be adapted to control similar Tektron
 This class is used by autoswitch and was intended to be integrated into the speckle measurement code but I ran out of time.
 
 Example of use:  
-`a = siggen('USB::0x0699::0x0341::C020167::INSTR');` - make 'a' - a connection to the siggen with device ID given
-`a.setup('iqvfp');` - set all initial starting properties (see above)
-`a.setv1(16.3);` - Set voltage source 1 to 16.3V
-`a.setf1(180);` - Set frequency 1 to 180 Hz
+`a = siggen('USB::0x0699::0x0341::C020167::INSTR');` - make 'a' - a connection to the siggen with device ID given  
+`a.setup('iqvfp');` - set all initial starting properties (see above)  
+`a.setv1(16.3);` - Set voltage source 1 to 16.3V  
+`a.setf1(180);` - Set frequency 1 to 180 Hz  
 `a.on` - switch both sources on
