@@ -5,6 +5,6 @@ I started editing the code to be easier to follow and the parts I completed are 
 
 ## Code that has been rewritten
 `run_all_steve` is now `run_lc_to_camera`  
-`steve_2_2` is now `prop_lc_to_camera`
-`cumulative_sc_old` is now `cumulative_sc`
+`steve_2_2` is now `prop_lc_to_camera`  
+`cumulative_sc_old` is now `cumulative_sc`  
 `findfolderswith` has the same name
