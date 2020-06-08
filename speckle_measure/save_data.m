@@ -31,7 +31,6 @@ switch param.scan
         
         fig.colourmap=figure();
         imagesc(param.results2D,[0 0.625]);
-%         title(param.testname);
         set(gca, 'XTick', 1:length(param.f.range), 'XTickLabel', param.f.range)
         set(gca, 'YTick', 1:length(param.v.range), 'YTickLabel', param.v.range)
         
@@ -43,9 +42,10 @@ switch param.scan
         c.Label.FontSize = 12;
         c.Label.String = 'Speckle contrast';
         
-        savefig([param.location,'Figure.fig'])
-%         saveas(gca, [param.location,'Image.jpg'], 'jpg')
-        export_fig([param.location,'Image.png'], '-transparent', '-r600')
+        savetwo([param.location,param.scantype])
+%         Old figure save - revert to this if it fails saving the figures
+%         savefig([param.location,'Figure.fig'])
+%         export_fig([param.location,'Image.png'], '-transparent', '-r600')
         
 %         Display the minimum speckle contrast reading and associated field
 %         conditions
@@ -69,12 +69,11 @@ switch param.scan
         xlabel('Time (mins)')
         ylabel('Speckle Contrast (C)')
         
-        savefig([param.location,'Figure.fig'])
-        export_fig([param.location,'C = ',num2str(round(param.avgsc,3)),' Range = ',num2str(round(param.range,3)),' ',num2str(param.v.now),'Vµm ',num2str(param.f.now),'Hz.png'], '-transparent', '-r600')
-end
-
-if param.sendemail
-    emailme('Finished',sprintf([param.scantype,' finished.']));
+        param.ssname = ['C = ',num2str(round(param.avgsc,3)),' Range = ',num2str(round(param.range,3)),' ',num2str(param.v.now),'Vµm ',num2str(param.f.now),'Hz'];
+        savetwo([param.location,param.ssname])
+%         Old figure save - revert to this if it fails saving the figures 
+%         savefig([param.location,'Figure.fig'])
+%         export_fig([param.location,'C = ',num2str(round(param.avgsc,3)),' Range = ',num2str(round(param.range,3)),' ',num2str(param.v.now),'Vµm ',num2str(param.f.now),'Hz.png'], '-transparent', '-r600')
 end
 
 param.time.actualfinish=datetime('now');

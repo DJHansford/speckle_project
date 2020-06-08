@@ -1,7 +1,7 @@
 function[param] = analyseImage(param)
 
 % Remove dark pixel value
-param.sn=param.sn-401;
+param.sn=param.sn-401; % This is specific to the camera we are using. If you cover the camera sensor, what is the average intensity value it records? We should subtract this to get a true value.
 
 param.snmarked=param.sn;
 % Mark search square for analysis

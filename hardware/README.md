@@ -1,5 +1,5 @@
-# hardware
-MATLAB code that controls our hardware. (Not including the main speckle measurement experiment). Currently this is just used for the projector demonstrator.
+# projector_demo
+MATLAB code to automate running the projector demo
 
 ## autoswitch
 `autoswitch(delay, time)`  

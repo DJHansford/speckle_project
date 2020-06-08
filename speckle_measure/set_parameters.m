@@ -2,32 +2,30 @@ function[param] = set_parameters()
 
 %% Variable Initiation
 % Settings that get changed
-param.version='4.3.1';
-% param.searchsize=200; % Set initially here but then set automatically in vfsweep
-param.sendemail=false; param.test=false;
+param.test=false;
 param.HeNesc=0.671;
 param.HeNerm=117754;
 param.nematic='BL006';
-param.ctab='';
-param.chiral='R5011 2.99%';
-param.temp='30';
-param.obj_pos='square in focus'; %Distance between front of objective and cell 
-param.cam_type = 'Retiga R3';
+param.ctab=''; % Any dopant or additive beyond the nematic and chiral dopant inc concentration %
+param.chiral='R5011 2.99%'; % chiral dopant inc concentration %
+param.temp='30'; % in °C
+param.obj_pos='square in focus'; %Position of objective - either distance from screen or description like 'in focus'
+param.cam_type = 'Retiga R3'; % Name of camera
 param.cam_pos=0.14; %Distance between camera sensor and screen (m)
 param.cam_angle=30; %Angle between camera and laser line in degrees
 param.cam_lens_f=35; %Focal length of camera lens (mm)
 param.iris=3.2; %Iris size in mm
 param.lens_dist = 29.00; %distance between lens cage box and camera cage box (mm)
-param.msobj = '10x';
-param.screen = 'paper';
-param.optics = 'diff1500 LC LP Diff1500 Obj';
+param.msobj = '10x'; % magnification of microscope objective used
+param.screen = 'paper'; % screen type (usually paper)
+param.optics = 'diff1500 LC LP Diff1500 Obj'; % list of optics in order seen by laser eg: diff1500 LC LP Diff1500 Obj
 
 % User input for crucial values
 disp('Have you selected the correct folder location?')
 % param.cellt = input('Enter cell thickness (µm): ');
-param.cellt = 20;
+param.cellt = 20; % Set permenantly to 20µm at the moment
 param.lot = ' LOT 002'; % With space before: ' LOT 00x'
-% param.filldate = input(['Enter ',num2str(param.cellt),'µm cell fill date (dd-mm): '],'s');
+% param.filldate = input(['Enter ',num2str(param.cellt),'µm cell fill date (yymmdd-x): '],'s');
 param.filldate = '200225-2';
 param.ndf = input('Enter NDF strength (OD): ');
 % param.ndf = 1.2;

@@ -6,14 +6,14 @@ global vidobj
 param = set_parameters;
 
 %% Initiate camera
-% vidobj = videoinput('qimaging');
-vidobj = videoinput('pmimaq2016b_1_0_34', 1, 'PM-Cam 1920x1460');
+% vidobj = videoinput('qimaging'); % Firewire 1334 camera
+vidobj = videoinput('pmimaq2016b_1_0_34', 1, 'PM-Cam 1920x1460'); % New camera
 vidobj.ReturnedColorSpace = 'grayscale';
 src = getselectedsource(vidobj);
 % param.exp = 0.050;
 param.exp = 50;
 src.Exposure = param.exp;
-vidobj.ROIPosition = [230 0 1460 1460];
+vidobj.ROIPosition = [230 0 1460 1460]; % This just crops the video size to a square (to save space on the HDD)
 src.AutoContrast = 'OFF';
 % src.Offset = 400;
 src.PortSpeedGain = 'Port0-Speed0-17.5439MHz-Gain1-16bit';
@@ -86,17 +86,19 @@ while param.isrunning
 end
 
 function [param] = autofindcentre (param)
-    meanx = mean(param.sn,1)';
-    meany = mean(param.sn,2);
-    fx = fit([1:length(meanx)]',meanx,'gauss1');
-    fy = fit([1:length(meany)]',meany,'gauss1');
-    
-    param.x = round(fx.b1);
-    param.y = round(fy.b1);
-    param.fwhmx = round(fx.c1); 
-    param.searchsize = 2*round(param.fwhmx/4);
 %     Got a weird bug that crashes when it can't find the centre
 %     automatically (looking for gaussian beam shape) so forcing it to
 %     centre for square beam experiments
+
+%     meanx = mean(param.sn,1)';
+%     meany = mean(param.sn,2);
+%     fx = fit([1:length(meanx)]',meanx,'gauss1');
+%     fy = fit([1:length(meany)]',meany,'gauss1');
+%     
+%     param.x = round(fx.b1);
+%     param.y = round(fy.b1);
+%     param.fwhmx = round(fx.c1); 
+%     param.searchsize = 2*round(param.fwhmx/4);
+
     param.x = 730; param.y = 730; param.searchsize = 400;
 end
