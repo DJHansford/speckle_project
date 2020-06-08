@@ -2,9 +2,9 @@
 % 'Data' sheet.
 
 clear all
-
-[~, ~, data1] = xlsread('Data.xlsx','Sheet1');
-[~, ~, data2] = xlsread('Data.xlsx','Sheet2');
+[fname,path]=uigetfile('*.xlsx');
+[~, ~, data1] = xlsread(fname,'Sheet1');
+[~, ~, data2] = xlsread(fname,'Sheet2');
 [x1,y1]=size(data1); [x2,y2]=size(data2);
 param.titles=data1(1,:);
 param.results=data1(2:x1,:);

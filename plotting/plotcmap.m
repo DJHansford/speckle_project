@@ -17,10 +17,12 @@ colormap(jet(64));
 
 % Set x and y axes labels
 xlabel('Frequency (Hz)','FontWeight','bold','FontName','Cambria');
-set(gca,'XTick',1:length(xrange),'XTickLabel',xrange);
+xn = 1; % How many field values do you want to skip when plotting? (Avoid overcramping)
+set(gca,'XTick',1:xn:length(xrange),'XTickLabel',xrange(1:xn:end));
 
 ylabel('Field Amplitude (V/µm)','FontWeight','bold','FontName','Cambria');
-set(gca,'YTick',1:2:length(yrange),'YTickLabel',yrange(1:2:end));
+yn = 2; % How many field values do you want to skip when plotting? (Avoid overcramping)
+set(gca,'YTick',1:yn:length(yrange),'YTickLabel',yrange(1:yn:end));
 
 set(gca,'CLim',[0 0.625],'FontName','Cambria','FontSize',18,'LineWidth',1);
 
