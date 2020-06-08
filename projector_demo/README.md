@@ -3,10 +3,13 @@ MATLAB code to automate running the projector demo
 
 ## autoswitch
 `autoswitch(delay, time)`  
-delay: time between switching device on and off (seconds)
-time: total time to run demo (seconds)
+AUTOSWITCH(delay, time, field, freq)  
+delay: time between switching device on and off (seconds)  
+time: total time to run demo (seconds)  
+field: (optional) field strength (V/µm)  
+freq: (optional) square-wave frequency (Hz)  
 
-AUTOSWITCH connects to a Tektronix AFG3022 Signal Generator to apply the square wave for peak performance of the cell DJH-151118-01 190329-1 at 55°C. It switches this field on and off every 'delay' seconds for a total of 'time' seconds. You can easily change the field conditions
+Connects to a Tektronix AFG3022 Signal Generator to apply the field required to demonstrate the LC speckle reducing device. If no field and frequency are provided it defaults to the conditions required for the cell DJH-151118-01 190329-1 at 55°C. It switches this field on and off every 'delay' seconds for a total of 'time' seconds.
 
 ## siggen  
 This is a CLASS with a range of methods:  
