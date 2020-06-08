@@ -25,3 +25,12 @@ p: struct used by run_lc_to_camera to store simulation parameters
 loop: struct used by run_lc_to_camera to store simulation parameters
 
 PROP_LC_TO_CAMERA simulates light propagation from LC device (random scattering) through lens onto scattering screen (not in focus). This is imaged by eye/CCD in focus. It is called by run_lc_to_camera.
+
+## copynewfiles
+`newcopy = copynewfiles(oldloc, newloc, search, filetype)`  
+oldloc: Location (folder) to copy new files from  
+newloc: Location (folder) to copy new files into  
+search: text string required in filenames for them to be copied  
+filetype: Filetype to be included in the search
+
+This code looks in oldloc for any files with 'search' in their name, checks if they exist already in newloc and copies them over if they don't. It will display the number of files found and copied. It will also preserve the folder structure within oldloc in newloc and create any required new folders. ONLY WORKS WITH MATLAB 2017 AND BEYOND. (This isn't currently being used by anything in this folder.)
