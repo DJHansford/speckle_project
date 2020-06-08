@@ -2,7 +2,7 @@
 MATLAB code that works with our lab hardware. (Currently the Signal Generator and UV-Vis Spectrometer)
 
 ## autoswitch
-`autoswitch(delay, time)`  
+`autoswitch(delay, time, field, freq)`  
 AUTOSWITCH(delay, time, field, freq)  
 delay: time between switching device on and off (seconds)  
 time: total time to run demo (seconds)  
