@@ -12,15 +12,16 @@ Before starting this, make sure you point the current folder to the location of 
 This is called by vfsweep before anything else happens. It sets up all the parameters required for the test and saves them all to a global struct called 'param'. This struct is passed to and from all functions and is used to control almost every aspect of the program. Originally setting the parameters was designed to be done in the UI (the figure) but the way we use the program has evolved and the UI has not. (I intended to update it but ran out of time.) Therefore we now update all the parameters by hand by editing this code before running vfsweep.m. This is not an elegant solution but it does the job for now! All the parameters you need to consider are listed below.
 
 Here's a rough guide on setting the parameters for each test type:  
-He-Ne properties:  
+
+### He-Ne properties:  
 Measured using the He-Ne test button - see make_figure below (btn_hene) for more details. Only check and update if you change the physical setup of the experiment.
 `param.HeNesc` the speckle contrast without an LC device in the path of the He-Ne
 `param.HeNerm` the sum of all intensity values in the searchbox without LC device
 
-Setup properties:  
+### Setup properties:  
 You must record what mixture you're using (nematic, chiral (chiral dopant) and ctab (other dopants)), the cell temperature, optics and camera details. (See comments for explanations)
 
-User input for crucial values:  
+### User input for crucial values:  
 These were all originally asked in the command window before the UI opened to ensure the user focussed on inputting them correctly. They are crucial for the correct running and saving of the data. Some have since been changed to being set directly in the code - just make sure you keep them correctly updated!  
 `param.cellt` - Cell gap in µm  
 `param.lot` - Cell lot (we are now tracking which delivery of cells we are using in case they vary over time)  
@@ -31,7 +32,7 @@ Quick: The initial test, usually 1-20V/µm in steps of 1V/µm and 20-100Hz in st
 Peak: Higher density scan around a smaller range of field values to find peak performance  
 Steady State: Run the cell at one set of field conditions for a set length of times
 
-Timing variables:  
+### Timing variables:  
 case {1,2} (Quick and Peak tests)  
 `param.fullreps` - usually set to 1, but if you want to do 10 quick tests in a row, set this to 10  
 case 3 (Steady State)  
@@ -39,7 +40,7 @@ case 3 (Steady State)
 `param.photo_time` - Save photos every x seconds (rather than saving every photo)  
 `param.photo_time_n` - When to start taking photos (leave as 0 to take throughout)
 
-Set SigGen variables:  
+### Set SigGen variables:  
 case {1,2} (Quick and Peak tests)  
 `param.v.range` - range of field amplitudes to test (eg: 1:1:20 means 1-20 in steps of 1)  
 `param.f.range` - range of frequencies to test (eg: 20:20:100 means 20-100 in steps of 20)  
