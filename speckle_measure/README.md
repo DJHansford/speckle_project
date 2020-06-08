@@ -8,7 +8,7 @@ This is the script you call to run the program. There are no arguments required.
 Before starting this, make sure you point the current folder to the location of the cell you're using. eg: `...\Speckle Reduction\BL006 (MDA) R5011\4.5% DJH-151118-02\181116-1 20µm LOT 002`
 
 ## set_parameters
-`set_parameters`  
+`param = set_parameters`  
 This is called by vfsweep before anything else happens. It sets up all the parameters required for the test and saves them all to a global struct called 'param'. This struct is passed to and from all functions and is used to control almost every aspect of the program. Originally setting the parameters was designed to be done in the UI (the figure) but the way we use the program has evolved and the UI has not. (I intended to update it but ran out of time.) Therefore we now update all the parameters by hand by editing this code before running vfsweep.m. This is not an elegant solution but it does the job for now! All the parameters you need to consider are listed below.
 
 Here's a rough guide on setting the parameters for each test type:  
@@ -51,7 +51,7 @@ case 3 (Steady State)
 This also creates the connection to the Signal Generator. I wanted to update this to use my new class (siggen.m) but haven't had time to do this before leaving!
 
 ## make_figure
-`make_figure`  
+`fig = make_figure`  
 This function does almost all the actual work! It starts with setting up the figure (first 200 lines). Don't edit this unless you want to change how the program works!
 
 `btn_capture`  
@@ -82,13 +82,13 @@ Clear the points on the updating plots of speckle contrast and transmission (und
 Change the size of the searchbox to the value typed into the UI next to this button.
 
 ## analyseimage
-`analyseimage`  
+`param = analyseimage(param)`  
 Simply works out the speckle contrast in the searchbox. Don't edit this unless you want to change how the program works!
 
 ## add_data
-`add_data`  
+`[param, fig] = add_data(param, fig)`  
 After every measurement we add the values to the param struct as well as updating the live plots in the UI. All this is done here. If we didn't save after every measurement then any crash in the program would loose all the data we'd taken. This way, even if the program crashes we don't lose any data we already took. Don't edit this unless you want to change how the program works!
 
 ## save_data
-`save_data`  
+`[param, fig] = save_data(param, fig)`  
 When the experiment is finished we save the data as a param.m file, in an excel spreadsheet, and we plot figures that we also save as .fig and .png files. Don't edit this unless you want to change how the program works!

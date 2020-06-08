@@ -9,7 +9,7 @@ function[folders] = findfolderswith(location, search_string, filetype)
 % 
 %   Use search_string '*' to list all directories that contain any files of
 %   your chosen filetype
-%
+% 
 %   Use filetype '*' to list all directories that contain files of any
 %   filetype that match your chosen search_string
 
