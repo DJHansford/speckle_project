@@ -1,0 +1,12 @@
+Intro: 0
+Exp: 28
+Results1: 19
+Results2: 0
+Results3: 0
+Sim: 34
+Sim Res: 21*
+Conc: 0
+
+Total: 102
+
+(*no real writing yet, fair amount of white space)
