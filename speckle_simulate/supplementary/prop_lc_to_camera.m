@@ -1,7 +1,7 @@
 function[p, loop] = prop_lc_to_camera(p)
 % PROP_LC_TO_CAMERA simulates light propagation from LC device (random
 %   scattering) through lens onto scattering screen (not in focus). This is
-%   imaged by eye/CCD in focus. It returns The input parameters are:
+%   imaged by eye/CCD in focus. The input parameters are:
 % 
 %   [p, loop] = PROP_LC_TO_CAMERA(p)
 

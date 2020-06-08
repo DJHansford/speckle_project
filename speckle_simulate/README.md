@@ -3,4 +3,4 @@ This code simulates optical propagation of coherent laser light through a dynami
 
 ## run_lc_to_camera
 `run_lc_to_camera`  
-Sets up and runs simulation of light from LC to camera. The user is prompted to select the location of their simulated data and the screen type they wish to use.
+Sets up for simulation of light propagation from the LC device through a lens, onto a screen and then imaged by a camera. You will be prompted to provide the location of your simulated data and your screen selection. (Two screens that I used in my DPhil are provided in \supplementary\screens).
